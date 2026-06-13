@@ -192,9 +192,10 @@ AnimatedContainer(
 - VS Code / Android Studio統合
 
 **React Native：**
-- Flipper（公式デバッガー）
+- React Native DevTools（公式デバッガー、0.73以降の新標準）
 - React DevTools
 - Chrome DevTools
+- Expo Tools（Expo利用時）
 
 ### 学習曲線
 
@@ -304,6 +305,8 @@ AnimatedContainer(
 
 - **新規プロジェクト**で、UIの一貫性やパフォーマンスを重視するなら**Flutter**
 - **既存のReactチーム**が素早くモバイルに参入するなら**React Native**
+
+実際に両方を触った経験から言うと、Flutterは「Hot Reloadの速さ」と「Widget単位での設計の明快さ」に感動しました。一方、React NativeはWebチームがそのままモバイルに参入できる低い学習コストが魅力でしたが、ネイティブモジュールとの連携で環境構築に苦労した記憶があります。
 
 どちらも成熟したフレームワークであり、「間違った選択」はありません。チームのスキルセット、プロジェクトの要件、長期的なメンテナンス計画を考慮して選びましょう。
 
