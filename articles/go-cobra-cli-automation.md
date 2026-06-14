@@ -155,14 +155,24 @@ targets:
       dry_run: true
 ```
 
-**設定読み込みコード**:
+**設定読み込みコード**（`cmd/config.go` に配置）:
+
 ```go
+package cmd
+
+import (
+    "fmt"
+    "os"
+
+    "gopkg.in/yaml.v3"  // go get gopkg.in/yaml.v3
+)
+
 type Config struct {
     Targets map[string]TargetConfig `yaml:"targets"`
 }
 
 type TargetConfig struct {
-    Path    string            `yaml:"path"`
+    Path    string                 `yaml:"path"`
     Options map[string]interface{} `yaml:"options"`
 }
 
@@ -346,8 +356,11 @@ if err != nil {
 ## ビルドとインストール
 
 ```bash
-# 開発中
+# 開発中（プロジェクトルートで実行）
 go build -o mytool
+
+# ローカルにインストール（プロジェクトルートで）
+go install .
 
 # Windows 向け（WSL から）
 GOOS=windows GOARCH=amd64 go build -o mytool.exe
@@ -355,8 +368,8 @@ GOOS=windows GOARCH=amd64 go build -o mytool.exe
 # Mac 向け
 GOOS=darwin GOARCH=amd64 go build -o mytool-mac
 
-# インストール
-go install github.com/yourname/mytool@latest
+# リモートリポジトリ公開後はこちらも可
+# go install github.com/yourname/mytool@latest
 ```
 
 ## .gitignore
