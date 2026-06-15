@@ -368,7 +368,7 @@ export abstract class BasePage {
 
 ```typescript
 // pages/DashboardPage.ts
-import { Page, expect } from '@playwright/test';
+import { Page, expect, Locator } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class DashboardPage extends BasePage {
