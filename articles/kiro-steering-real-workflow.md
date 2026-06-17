@@ -49,7 +49,7 @@ AIは丁寧に確認してくれますが、作業効率は最悪です。
 
 `.kiro/steering/my-workflow.md` を作成しました：
 
-```markdown
+```markdown:my-workflow.md
 ---
 inclusion: manual
 ---
@@ -124,7 +124,7 @@ inclusion: manual
 
 ### user-preferences.md（auto）
 
-```markdown
+```markdown:user-preferences.md
 ---
 inclusion: auto
 ---
@@ -142,7 +142,7 @@ inclusion: auto
 
 ### my-workflow.md（manual）
 
-```markdown
+```markdown:my-workflow.md
 ---
 inclusion: manual
 ---
@@ -154,6 +154,12 @@ inclusion: manual
 2. 前回の続きから作業を進める
 3. 質問せず、メモに記載されている情報で判断して進める
 ```
+
+:::message
+**補足：指示の競合について**
+
+「追記は確認してから」と「質問せず進める」は矛盾しません。前者は**書き込み操作**への制限、後者は**読み込み・判断**に関する指示です。AIは「メモを読んで判断する」ことは質問なしで行い、「メモに追記する」ときは確認を求めます。
+:::
 
 ## よくある質問
 
