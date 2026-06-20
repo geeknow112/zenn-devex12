@@ -69,7 +69,7 @@ Autopilotだけでは、Kiroは「何をすればいいか」がわかりませ�
 
 そこでSteeringで**判断基準**を与えます。
 
-```markdown:full-auto-workflow.md
+```md:full-auto-workflow.md
 ---
 inclusion: manual
 ---
@@ -208,13 +208,13 @@ Kiro：作業完了しました。
 
 Steeringの指示が弱い可能性があります。より強い表現に変えてみてください。
 
-```markdown
+```diff
 # NG: 弱い表現
 - できれば質問せずに進めてください
 
 # OK: 強い表現
-- **質問は禁止**。不明点は推論で補う
-- 確認が必要な場合でも、まず実行してから報告する
++ **質問は禁止**。不明点は推論で補う
++ 確認が必要な場合でも、まず実行してから報告する
 ```
 
 ### 「途中で止まる」場合
@@ -259,7 +259,7 @@ Hooksで安全装置を入れてください。
 
 ### 調査用Steering
 
-```markdown:investigate-repo.md
+```md:investigate-repo.md
 ---
 inclusion: manual
 ---
