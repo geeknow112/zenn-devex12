@@ -184,6 +184,17 @@ MCP（Model Context Protocol）を使うと、外部ツールとの連携がで�
 
 GitHubと連携すれば、Claude Codeが直接PRの作成やIssueの確認ができるようになります。
 
+:::message alert
+トークンをプロジェクトローカルの`.claude/settings.json`に書く場合は、`.gitignore`に追加してコミットを防いでください。
+
+```
+# .gitignore
+.claude/settings.json
+```
+
+グローバル設定（`~/.claude/settings.json`）に書くほうが安全です。
+:::
+
 ## 実際の作業フロー
 
 環境が整ったら、作業フローはこうなります。
