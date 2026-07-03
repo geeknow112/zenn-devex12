@@ -78,6 +78,7 @@ security-scan/
 package cmd
 
 import (
+	"context"
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
@@ -141,11 +142,21 @@ type Finding struct {
 	Description string
 	Remediation string
 }
+
+// Severity定数を定義しておくと型安全性が高まります
+const (
+	SeverityCritical = "Critical"
+	SeverityHigh     = "High"
+	SeverityMedium   = "Medium"
+	SeverityLow      = "Low"
+	SeverityInfo     = "Info"
+)
 ```
 
 ### 2. SSL証明書チェック
 
-`crypto/tls` を使って SSL 証明書の有効性と残り日数をチェックします。
+`crypto/tls` と `net.Dialer` を使って SSL 証明書の有効性と残り日数をチェックします。
+`context` と `net.Dialer` を組み合わせることで、タイムアウト制御をより厳密に行えます。
 
 ```go
 func checkSSL(url string) SSLResult {
@@ -158,15 +169,42 @@ func checkSSL(url string) SSLResult {
 	}
 	
 	host := getHost(url)
-	conn, err := tls.Dial("tcp", host+":443", &tls.Config{
+	
+	// contextとnet.Dialerで適切なタイムアウト制御
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	
+	dialer := &net.Dialer{}
+	netConn, err := dialer.DialContext(ctx, "tcp", host+":443")
+	if err != nil {
+		result.Enabled = false
+		result.Risk = "Critical"
+		return result
+	}
+	
+	conn := tls.Client(netConn, &tls.Config{
+		ServerName:         host,
 		InsecureSkipVerify: false,
 	})
+	conn.SetDeadline(time.Now().Add(10 * time.Second))
+	
+	err = conn.Handshake()
 	if err != nil {
+		conn.Close()
 		// 証明書に問題がある場合も情報を取得
-		conn, err = tls.Dial("tcp", host+":443", &tls.Config{
+		netConn, err = dialer.DialContext(ctx, "tcp", host+":443")
+		if err != nil {
+			result.Enabled = false
+			result.Risk = "Critical"
+			return result
+		}
+		conn = tls.Client(netConn, &tls.Config{
+			ServerName:         host,
 			InsecureSkipVerify: true,
 		})
-		if err != nil {
+		conn.SetDeadline(time.Now().Add(10 * time.Second))
+		if err = conn.Handshake(); err != nil {
+			conn.Close()
 			result.Enabled = false
 			result.Risk = "Critical"
 			return result
@@ -284,6 +322,10 @@ func checkHeaders(url string) (HeadersResult, ServerInfoResult) {
 ### 4. CMS検出
 
 HTMLのパターンマッチングでWordPressなどのCMSを検出します。
+
+:::message
+**注意**: このCMS検出は簡易的なヒューリスティクスに基づいており、確実ではありません。CMS運営者がパスをカスタマイズしたり、シグネチャを削除したりしている場合、検出できないことがあります。
+:::
 
 ```go
 func detectCMS(url string) CMSResult {
