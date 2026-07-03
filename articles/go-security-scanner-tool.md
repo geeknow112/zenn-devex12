@@ -28,13 +28,13 @@ Webサイトを運営していると、以下のような問題を見落とし�
 
 ```bash
 # 基本的な使い方
-$ biz-tools scan https://example.com
+$ security-scan https://example.com
 
 # Markdown形式で出力
-$ biz-tools scan https://example.com -o markdown
+$ security-scan https://example.com -o markdown
 
 # HTMLレポートとしてファイル保存
-$ biz-tools scan https://example.com -o html -f report.html
+$ security-scan https://example.com -o html -f report.html
 ```
 
 出力例：
@@ -61,7 +61,7 @@ $ biz-tools scan https://example.com -o html -f report.html
 ### プロジェクト構成
 
 ```
-biz-tools/
+security-scan/
 ├── main.go
 ├── cmd/
 │   ├── root.go
@@ -405,23 +405,17 @@ HTML出力では、CSSを埋め込んで見やすいレポートを生成しま�
 
 ## 使い方
 
-### インストール
-
-```bash
-go install github.com/geeknow112/biz-tools@latest
-```
-
 ### 実行例
 
 ```bash
 # 基本診断
-biz-tools scan https://example.com
+security-scan https://example.com
 
 # Markdownでファイル出力
-biz-tools scan https://example.com -o markdown -f report.md
+security-scan https://example.com -o markdown -f report.md
 
 # HTMLレポート作成
-biz-tools scan https://example.com -o html -f report.html
+security-scan https://example.com -o html -f report.html
 ```
 
 ## チェック項目一覧
@@ -448,10 +442,6 @@ Go + Cobra で実用的なセキュリティ簡易診断ツールを作りまし
 
 - **標準ライブラリ** のみで SSL/TLS、DNS チェックが可能
 - **複数の出力形式** に対応し、レポート作成が簡単
-- 自社サイトの定期チェックや営業ツールとして活用可能
-
-ソースコードは GitHub で公開しています：
-https://github.com/geeknow112/biz-tools
 
 ## 関連記事
 
