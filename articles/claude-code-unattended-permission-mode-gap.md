@@ -12,7 +12,7 @@ published: false
 - `claude --help` を実際に読んで見つけた、許可リスト方式とは別レイヤーの権限モード（`--permission-mode`、`--dangerously-skip-permissions`）
 - なぜそれを普段使いの環境でそのまま使うのは危険か、どう安全に使うべきか
 
-以前、[調査系コマンドの承認を完全自動化する設定](https://qiita.com/)という記事を書きました。この設定を入れれば夜間バッチも完全無人で回るはず、と思っていたのですが、実際にはpush前後で止まりました。原因を調べた記録です。
+以前、[【コピペOK】Kiro/Claude Codeの「信頼済みコマンド」設定で調査作業の承認を完全自動化する](https://qiita.com/geeknow112/items/894b16b584ab0e83dce5)という記事を書きました。この設定を入れれば夜間バッチも完全無人で回るはず、と思っていたのですが、実際にはpush前後で止まりました。原因を調べた記録です。
 
 ## 背景：「動くはず」が動かなかった
 
@@ -52,7 +52,23 @@ published: false
 
 つまり、許可リストは「個別のコマンドパターンをホワイトリスト化する」レイヤーで、`--dangerously-skip-permissions` / `--permission-mode bypassPermissions` は「そのレイヤーごとスキップする」レイヤーです。両者は別物でした。
 
-自分の `.claude/settings.json` は `defaultMode: "acceptEdits"` になっていましたが、これはファイル編集（Edit/Write）の確認を自動承認するモードで、許可リストに無いBashコマンドの確認までは免除しません。「acceptEdits にしているのに止まる」のは、そもそも見ているレイヤーが違ったから、という結論になりました。
+自分の `.claude/settings.json` は `defaultMode: "acceptEdits"` になっていましたが、これはファイル編集（Edit/Write）の確認を自動承認するモードで、許可リストに無いBashコマンドの確認までは免除しません。「acceptEdits にしているのに止まる」のは、そもそも見ているレイヤーが違ったから、という結論になりました。図にすると、こういう関係です。
+
+```mermaid
+flowchart TD
+    A[コマンド/ツール呼び出しが発生] --> B{permission-mode は?}
+    B -->|bypassPermissions<br/>--dangerously-skip-permissions| C[チェック丸ごとスキップ<br/>常に確認なしで実行]
+    B -->|acceptEdits / auto / manual / dontAsk / plan| D{Bashコマンドか?}
+    D -->|Yes| E{settings.jsonの<br/>allow/denyに一致する?}
+    E -->|denyに一致| F[実行拒否<br/>チャットで許可と言っても通らない]
+    E -->|allowに一致| G[確認なしで実行]
+    E -->|どちらにも無い| H[毎回ユーザーに確認<br/>ここでYes地獄が発生]
+    D -->|No: Edit/Write等| I{acceptEditsか?}
+    I -->|Yes| G
+    I -->|No| H
+```
+
+過去記事の許可リスト（`grep`/`cat`/`git log`など）は図でいう「E: allowに一致」の枝だけを充実させたものでした。`git push` や `gh pr create` はそこに登録していなかったので「H: 毎回確認」に落ち、夜間バッチはそこで止まっていた、ということです。
 
 ## なぜ普段の環境でそのまま使わないか
 
@@ -62,9 +78,25 @@ published: false
 
 ## 安全に無人化するなら、という設計方針
 
-Zennのトレンドを見ていて見つけた [AWS Japan公式の記事](https://zenn.dev/) が、この課題への一つの答えになりそうでした。EC2インスタンス上でtmuxを使ってKiro/Claude Codeを動かし続ける、という内容です。
+Zennのトレンドを見ていて見つけた [PC を閉じても Kiro / Claude Code は動き続ける — EC2 + tmux で 24 時間開発](https://zenn.dev/aws_japan/articles/49d2c641322289)（AWS Japan公式）が、この課題への一つの答えになりそうでした。EC2インスタンス上でtmuxを使ってKiro/Claude Codeを動かし続ける、という内容です。
 
 考え方としては、こうなります。
+
+```mermaid
+flowchart LR
+    subgraph Local["母艦（普段使いのマシン）"]
+        L1[bypassPermissionsは使わない]
+        L2[許可リストで<br/>読み取り系だけ自動化]
+    end
+    subgraph EC2["使い捨ての隔離環境<br/>（ネットワーク/IAMを絞ったEC2）"]
+        E1[tmux上でClaude Codeを起動]
+        E2["--permission-mode bypassPermissions"]
+        E3[記事生成 → commit → push → PR作成]
+    end
+    Local -- "作業を切り出して依頼" --> EC2
+    E1 --> E2 --> E3
+    E3 -- "被害が出ても<br/>この環境内に収まる" --> EC2
+```
 
 1. 母艦（普段使いのマシン）で `--dangerously-skip-permissions` は使わない
 2. 使い捨てできる隔離環境（ネットワークやIAM権限を絞ったEC2インスタンスなど）を用意する
