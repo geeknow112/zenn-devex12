@@ -152,3 +152,11 @@ Kiro IDEはVS Codeベースなので、VS Codeのショートカットがほぼ�
 
 - [Kiro公式ドキュメント](https://kiro.dev/docs/)
 - [VS Codeショートカット一覧](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+
+---
+
+## Udemyコースのご案内
+
+本記事のようなKiro活用のノウハウをまとめたUdemyコースを公開しています。
+
+- [Kiro完全自動化マスター講座 〜開発を効率化する実践テクニック〜](https://www.udemy.com/course/kiro-ai10/)（¥4,800）
