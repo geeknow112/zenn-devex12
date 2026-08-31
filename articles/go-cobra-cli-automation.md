@@ -3,7 +3,7 @@ title: "【実践】Go + Cobraで業務自動化CLIツールを作る - 設計�
 emoji: "⚡"
 type: "tech"
 topics: ["go", "cobra", "cli", "github", "automation"]
-published: false
+published: true
 ---
 
 ## この記事で得られること
@@ -421,3 +421,9 @@ Go + Cobra なら、シングルバイナリで配布も楽。ぜひ自分の業
 - [spf13/cobra - GitHub](https://github.com/spf13/cobra)
 - [Go by Example](https://gobyexample.com/)
 - [Cobra Generator](https://github.com/spf13/cobra-cli)
+
+---
+
+本記事で作ったような業務自動化CLIの発想は、弊社（Trident Capital Symbiosis）が営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンとしてAIエージェントで24時間動かしている仕組みの根っこにあるものです。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。

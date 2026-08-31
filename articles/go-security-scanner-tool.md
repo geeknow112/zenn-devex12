@@ -3,7 +3,7 @@ title: "【Go】Webサイトのセキュリティ簡易診断ツールを作る 
 emoji: "🔍"
 type: "tech"
 topics: ["go", "security", "cli", "ssl", "web"]
-published: false
+published: true
 ---
 
 ## この記事で得られること
@@ -488,3 +488,9 @@ Go + Cobra で実用的なセキュリティ簡易診断ツールを作りまし
 ## 関連記事
 
 - [Go + Cobraで業務自動化CLIツールを作る](https://zenn.dev/devex12/articles/go-cobra-cli-automation)
+
+---
+
+本記事はセキュリティ診断ツールの自作が中心ですが、弊社（Trident Capital Symbiosis）では診断に限らず、営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンをAIエージェントで24時間動かしています。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。
