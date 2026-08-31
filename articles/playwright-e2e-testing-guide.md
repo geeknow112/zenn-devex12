@@ -3,7 +3,7 @@ title: "Playwright導入で地獄を見た話 - 本番運用までに踏んだ�
 emoji: "🎭"
 type: "tech"
 topics: ["playwright", "e2e", "testing", "javascript", "typescript"]
-published: false
+published: true
 ---
 
 ## この記事の対象者
@@ -427,3 +427,9 @@ Playwright は「動かす」のは簡単ですが、「安定運用」までに
 - [Playwright 公式 - Best Practices](https://playwright.dev/docs/best-practices)
 - [Playwright 公式 - Test Fixtures](https://playwright.dev/docs/test-fixtures)
 - [Playwright 公式 - Authentication](https://playwright.dev/docs/auth)
+
+---
+
+本記事はE2Eテストの安定運用が中心ですが、弊社（Trident Capital Symbiosis）ではテスト運用に限らず、営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンをAIエージェントで24時間動かしています。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。

@@ -3,7 +3,7 @@ title: "【実践】Kiro/Claude Codeの「信頼済みコマンド」で調査�
 emoji: "🔓"
 type: "tech"
 topics: ["kiro", "claudecode", "ai", "自動化", "開発効率化"]
-published: false
+published: true
 ---
 
 ## この記事の位置づけ
@@ -307,8 +307,6 @@ https://zenn.dev/geeknow112/articles/kiro-steering-real-workflow
 
 ---
 
-## Udemyコースのご案内
+この記事で紹介した「信頼済みコマンドで承認をゼロにする」設定は、弊社（Trident Capital Symbiosis）が実際に自社の営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンとして24時間動かす中で使っている考え方そのものです。
 
-本記事のようなKiro活用のノウハウをまとめたUdemyコースを公開しています。
-
-- [Kiro完全自動化マスター講座 〜開発を効率化する実践テクニック〜](https://www.udemy.com/course/kiro-ai10/)（¥4,800）
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。

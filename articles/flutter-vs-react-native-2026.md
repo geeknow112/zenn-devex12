@@ -3,7 +3,7 @@ title: "Flutter vs React Native 2026年版：どちらを選ぶべきか徹底�
 emoji: "📱"
 type: "tech"
 topics: ["flutter", "reactnative", "mobile", "crossplatform", "dart"]
-published: false
+published: true
 ---
 
 ## クロスプラットフォーム開発、どちらを選ぶ？
@@ -317,4 +317,10 @@ AnimatedContainer(
 - [Dart 言語](https://dart.dev/)
 - [Expo](https://expo.dev/)
 - [pub.dev（Flutterパッケージ）](https://pub.dev/)
+
+---
+
+本記事はモバイル開発フレームワークの比較が中心ですが、弊社（Trident Capital Symbiosis）では開発対象を問わず、営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンをAIエージェントで24時間動かしています。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。
 

@@ -3,7 +3,7 @@ title: "【2026年版】AIによる画像・動画生成ツール徹底比較 - 
 emoji: "🎨"
 type: "tech"
 topics: ["AI", "画像生成", "動画生成", "Midjourney", "Runway"]
-published: false
+published: true
 ---
 
 ## この記事の対象者
@@ -286,3 +286,9 @@ no text,
 - [Runway公式](https://runwayml.com/)
 - [Pika公式](https://pika.art/)
 - [OpenAI DALL-E](https://openai.com/dall-e-3)
+
+---
+
+本記事はAI生成ツールの比較が中心ですが、弊社（Trident Capital Symbiosis）では画像・動画生成に限らず、営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンをAIエージェントで24時間動かしています。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。

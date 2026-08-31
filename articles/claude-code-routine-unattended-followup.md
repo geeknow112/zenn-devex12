@@ -3,7 +3,7 @@ title: "「隔離環境の構築はこれから」の5日後、実際に選ん�
 emoji: "🌙"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "automation", "cron"]
-published: false
+published: true
 ---
 
 ## この記事で得られること
@@ -99,3 +99,9 @@ A. 無駄ではなく、今回の結論を出す前提知識になりました�
 - [Claude Code on the web - Overview](https://code.claude.com/docs/en/claude-code-on-the-web)
 
 ※本記事は個人のClaude Code Remote環境で確認した内容です。Routineの挙動は執筆時点でリサーチプレビュー段階であり、将来変わる可能性があります。
+
+---
+
+この記事で紹介した仕組みは、弊社（Trident Capital Symbiosis）が実際に自社の営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンとして24時間動かしているものです。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。

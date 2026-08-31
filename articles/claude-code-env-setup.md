@@ -3,7 +3,7 @@ title: "【Claude Code】IDEなしで快適に！CLI作業環境おすすめ設�
 emoji: "🖥️"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "開発環境", "cli"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -233,3 +233,9 @@ Claude Code CLI環境を快適にするポイント：
 | Hooksで自動化 | lint・通知など繰り返し作業をゼロに |
 
 「IDEがない」は欠点ではなく、**AIに全部任せる**という割り切りです。慣れると、IDE時代よりも速く開発できます。
+
+---
+
+本記事で紹介したCLI作業環境は、弊社（Trident Capital Symbiosis）が営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンを24時間動かす土台にもなっているものです。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。

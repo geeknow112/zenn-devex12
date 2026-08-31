@@ -3,7 +3,7 @@ title: "公式ドキュメントゼロ。Claude Codeの秘密テーマ機能を�
 emoji: "🔬"
 type: "tech"
 topics: ["claudecode", "claude", "reverseengineering", "cli", "typescript"]
-published: false
+published: true
 ---
 
 # きっかけ
@@ -149,3 +149,9 @@ function Q$e(e){
 - 推測で設定ファイルを書いて壊すより、実際の検証ロジックを先に確認する方が結果的に早い
 
 CLIツールの非公開機能を触るとき、「ドキュメントがないから無理」で終わらせず、動いているバイナリ自体を読みにいく選択肢は覚えておいて損はない。
+
+---
+
+本記事はClaude Codeの非公開機能を調べた記録ですが、弊社（Trident Capital Symbiosis）ではこうした調査で得た知見をもとに、営業トリアージ・経営管理の日次ブリーフィング・コンテンツ制作のリサーチなど、4本のルーティンを実際にAIエージェントで24時間動かしています。
+
+同じように「毎日決まった時間に手が止まる定型業務」がある方は、30分ほど画面を見ながら「これ、自分のところでも動きそうか」を一緒に確認するだけでもよければ、お気軽にご連絡ください。ご連絡は `miyoshi@trident-capital-symbiosis.com` までお願い致します。
